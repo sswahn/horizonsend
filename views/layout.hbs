@@ -1,10 +1,102 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#000000">
+    <meta name="description" content="Horizon's End is a video game design company focused on delivering old school RPG's to the modern age gamer and to lifelong lovers of the genre. We aim to provide an unforgettable gaming experience to people around the globe.">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.horizonsend.com">
+    <meta property="og:site_name" content="Horizon's End">
+    <meta property="og:title" content="Horizon's End">
+    <meta property="og:description" content="Horizon's End is a video game design company focused on delivering old school RPG's to the modern age gamer and to lifelong lovers of the genre. We aim to provide an unforgettable gaming experience to people around the globe.">
+    <meta property="og:image" content="http://www.horizonsend.com/images/logo-black.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="horizonsend">
+    <meta name="twitter:site" content="horizonsend">
+    <meta name="twitter:domain" content="Horizon's End">
+    <meta name="twitter:title" content="Horizon's End">
+    <meta name="twitter:description" content="Horizon's End is a video game design company focused on delivering old school RPG's to the modern age gamer and to lifelong lovers of the genre. We aim to provide an unforgettable gaming experience to people around the globe.">
+    <meta name="twitter:image" content="http://www.horizonsend.com/images/logo-black.png">
+
+    <title>{{ title }}</title>
+
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="shortcut icon" href="http://www.horizonsend.com/images/favicon.png?v=2">
+    <link rel="logo" type="image/png" href="http://www.horizonsend.com/images/logo-black.png">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,600">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <script type="application/ld+json">
+      {
+        "@context": "http://schema.org",
+        "@type": "Organization",
+        "url": "http://www.horizonsend.com",
+        "name": "Horizon's End",
+        "description": "Video Game Design",
+        "logo": "http://www.horizonsend.com/images/logo-black.png"
+      }
+    </script>
   </head>
   <body>
-    {{{body}}}
+    <header id="header">
+      <div>
+        <h1>
+          <a href="/" rel="home">
+            <img class="logo" src="http://www.horizonsend.com/images/horizons-end_logo.png" alt="Horizon's End | Video Game Design">
+          </a>
+        </h1>
+        <nav id="navigation">
+          <a href="http://store.steampowered.com/app/818610/The_Great_Gaias/" title="Buy The Great Gaias on Steam!" target="_blank">
+            <i class="fa fa-steam-square"></i>
+          </a>
+          <a href="https://horizonsend.bandcamp.com/album/the-great-gaias-original-soundtrack" title="Buy The Great Gaias Musical Score on Bandcamp!" target="_blank">
+            <i class="fa fa-bandcamp"></i>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <main id="app"> 
+      {{{ body }}}
+    </main>
+    <footer id="footer">
+      <p>
+        <a href="https://www.facebook.com/horizonsendgaming" target="_blank" title="Horizon's End Facebook page">
+          <i class="fa fa-facebook-official"></i>
+          <span>Facebook</span>
+        </a>
+        &nbsp;|&nbsp;
+        <a href="https://www.twitch.tv/horizonsendgaming" target="_blank" title="Horizon's End on Twitch">
+          <i class="fa fa-twitch"></i>
+          <span>Twitch</span>
+        </a>
+        &nbsp;|&nbsp;
+        <a href="https://www.youtube.com/user/horizonsendgaming" target="_blank" title="Horizon's End YouTube channel">
+          <i class="fa fa-youtube"></i>
+          <span>YouTube</span>
+        </a>
+        &nbsp;|&nbsp;
+        <a href="https://thegreatgaias.gamepedia.com/The_Great_Gaias_Wiki" target="_blank" title="The Great Gaias Official Wiki hosted by Curse">
+          <i class="fa fa-pencil-square-o"></i>
+          <span>Wiki</span>
+        </a>
+        &nbsp;|&nbsp;
+        <a href="https://www.dropbox.com/sh/8zpffok4joky59p/AACLe425qbiZlwTgEw1BKRMaa?dl=0" target="_blank" title="Press Kit for The Great Gaias video game">
+          <i class="fa fa-download"></i>
+          <span>Press Kit</span>
+        </a>
+        &nbsp;|&nbsp;
+        <a href="mailto:horizonsendgaming@gmail.com" title="Send an email to Horizon's End">
+            <i class="fa fa-envelope-o"></i>
+            <span>Contact</span>
+          </a>
+      </p>
+      <small>&copy; 2018 Horizon's End, Inc. All Rights Reserved.</small>
+    </footer>
+    <script src="/javascripts/vue.js"></script>
+    <script src="/javascripts/{{ script }}"></script>
   </body>
 </html>

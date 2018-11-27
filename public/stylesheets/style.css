@@ -1,8 +1,357 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato','Arial', 'Helvetica', sans-serif;
+}
+html, body {
+  width: 100%;
+  overflow-x:hidden;
+}
+#header {
+  width: 100%;
+  margin-bottom: 40px;
+  background: black;
+  border-top: 1px solid red;
+  overflow: hidden;
+}
+#header > div {
+  width: 1280px;
+  margin: 0 auto;
+}
+#header > div h1 {
+  display: inline-block;
+  width: 300px;
+}
+.logo {
+  width: 300px;
+}
+a, a:link, a:visited, a:active {
+  color: red;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+a[rel=home], a[rel=home]:link, a[rel=home]:visited, a[rel=home]:active {
+  color: white;
+  font-weight: lighter;
+  font-size: 18px; 
+}
+nav {
+  float: right;
+  margin-top: 45px;
+}
+nav a, nav a:link, nav a:visited, nav a:active {
+  color: white;
+  font-size: 44px;
+  text-decoration: none;
+  margin-right: 300px;
+}
+nav a:last-child {
+  margin-right: 0;
+}
+#footer {
+  text-align: center;
+  width: 100%;
+  padding: 40px 0;
+  margin: 0 auto;
+  margin-top: 40px;
+  background: black;
+  color: white;
+}
+#footer a {
+  font-size: 14px;
+  color: #999;
+}
+#footer small {
+  display: block;
+  margin-top: 5px;
+}
+.sections {
+  display: flex;
+  flex-flow: row wrap;
+  width: 1280px;
+  margin: 0 auto;
 }
 
-a {
-  color: #00B7FF;
+/**
+ * Showcase
+ */
+ #showcase {
+  margin-bottom: 40px;
+}
+.trailer {
+  border: 1px solid #777;
+  margin-right: 40px;
+}
+.side-bar {
+  width: 400px;
+}
+.steam-widget {
+  display: block;
+  height: 192px;
+  width: 100%;
+  margin-bottom: 20px;
+  border: none;
+}
+.bandcamp-widget {
+  display: block;
+  width: 100%;
+  height: 290px;
+  border: none;
+}
+
+/**
+ * News
+ */
+.article {
+  width: 400px;
+  margin: 0 40px 40px 0;
+  background: white;
+}
+.article:nth-of-type(3n) {
+  margin-right: 0;
+}
+.article figure {
+  cursor: pointer;
+  border: 1px solid gray;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background: black;
+}
+.article img {
+  width: 100%;
+}
+.article figcaption {
+  width: 100%;
+  color: #eee;
+  background: rgba(0,0,0,0.75); 
+  padding: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.article h2 {
+  font-size: 24px;
+  font-weight: lighter;
+  margin: 20px 0 5px 0;
+}
+.article address, .article time {
+  display: inline-block;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+.article p {
+  font-size: 16px;
+  line-height: 1.2;
+  width: 100%;
+}
+.fold {
+  display: none;
+}
+.show-fold {
+  display: block;
+}
+.toggle-fold {
+  display: inline;
+  cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
+}
+.article a, 
+.article a:link, 
+.article a:visited, 
+.article a:active {
+  color: red;
+  text-decoration: none;
+}
+.article a:hover {
+  color: maroon;
+  text-decoration: underline;
+}
+
+/**
+ * Media
+ */
+#media h3 {
+  font-size: 22px;
+  font-weight: lighter;
+  margin-bottom: 5px;
+}
+#media img {
+  width: 100%;
+}
+.media-item {
+  border: 1px solid gray;
+  overflow: hidden;
+  margin: 0 40px 40px 0;
+  position: relative;
+  height: 200px;
+  width: 400px;
+  cursor: pointer;
+}
+.media-item:nth-of-type(3n) {
+  margin-right: 0;
+}
+.show-media-item {
+  border: 1px solid gray;
+  overflow: auto;
+  margin-bottom: 40px;
+  position: relative;
+  line-height: 1.2;
+  width: 400px;
+  cursor: pointer;
+  height: auto;
+}
+.media-caption {
+  color: #eee;
+  background: black;
+  background: rgba(0,0,0,0.75); 
+  padding: 0 0 5px 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+}
+.show-caption {
+  color: white;
+  background: black;
+  background: rgba(0,0,0,0.75); 
+  padding: 20px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+.caption-expand {
+  color: white;
+  background: black;
+  background: rgba(0,0,0,0.75); 
+  padding: 5px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+}
+@media only screen and (max-width:1200px) {
+  #header > div {
+    width: 800px;
+  }
+  nav a, nav a:link, nav a:visited, nav a:active {
+    margin-right: 100px;
+  }
+  nav a:last-child {
+    margin-right: 0;
+  }
+  .sections {
+    width: 800px;
+  }
+  #showcase {
+    margin-bottom: 20px;
+  }
+  .trailer {
+    margin-right: 0;
+  }
+  .side-bar {
+    margin: 40px 0 0;
+    width: 100%;
+  }
+  .steam-widget {
+    width: 380px;
+    margin-right: 40px;
+    margin-bottom: 0;
+    float: left;
+  }
+  .bandcamp-widget {
+    width: 380px;
+    height: 170px;
+  }
+  .article {
+    width: 380px;
+  }
+  .article:nth-of-type(3n) {
+    margin-right: 40px;
+  }
+  .article:nth-of-type(2n) {
+    margin-right: 0;
+  }
+  .media-item {
+    width: 380px;
+  }
+  .media-item:nth-of-type(3n) {
+    margin-right: 40px;
+  }
+  .media-item:nth-of-type(2n) {
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width:800px) {
+  main {
+    padding: 0 10px;
+  }
+  #header > div {
+    width: 100%;
+  }
+  .logo {
+    width: 200px;
+    margin-left: 5px;
+  }
+  nav {
+    margin-top: 28px;
+  }
+  nav a, nav a:link, nav a:visited, nav a:active {
+    font-size: 34px;
+    margin-right: 50px;
+  }
+  .sections {
+    width: 100%;
+  }
+  .trailer, .side-bar, .steam-widget, .bandcamp-widget {
+    width: 100%;
+  }
+  #showcase {
+    margin-bottom: 40px;
+  }
+  .steam-widget {
+    margin-bottom: 20px;
+  }
+  .bandcamp-widget {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  #news > * {
+    width: 100%;
+  }
+  .article {
+    margin-right: 0;
+  }
+  .article:nth-of-type(3n) {
+    margin-right: 0;
+  }
+  #media > * {
+    width: 100%;
+  }
+  .media-item {
+    margin-right: 0;
+  }
+  .media-item:nth-of-type(3n) {
+    margin-right: 0;
+  }
+}
+@media only screen and (max-width:500px) {
+  main {
+    padding: 0 5px;
+  }
+  nav {
+    display: none;
+  }
 }

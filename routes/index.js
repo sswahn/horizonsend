@@ -1,9 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+/* GET index page. */
+router.get('/', function(request, response) {
+  response.render('index', { 
+    title: "Horizon's End | Video Game Design",
+    script: 'news.js'
+  })
+})
 
-module.exports = router;
+module.exports = router
