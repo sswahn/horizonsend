@@ -3,10 +3,12 @@
  * 
  */
 
-class User {
+const Cookie = require('../utilities/CookieUtility')
 
-  static async validate(cookie) {
-    return await request.database.collection('login')
+class User {
+  static validate(request) {
+    const cookie = Cookie.get(request)
+    return request.database.collection('logins')
       .find({ uuid: cookie })
       .toArray()
   }

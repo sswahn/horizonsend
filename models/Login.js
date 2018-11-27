@@ -32,11 +32,15 @@ class Login {
 
   loginUser(document) {
     const collection = this.request.database.collection('logins')
-    return collection.insertOne({
-      user: document[0].username,
-      createdAt: Date.now(),
-      uuid: this.request.uuid()
-    })
+    return collection.replaceOne(
+      { username: document[0].username }, 
+      {
+        username: document[0].username,
+        createdAt: Date.now(),
+        uuid: this.request.uuid()
+      }, 
+      { upsert: true }
+    )
   }
 }
 

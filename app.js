@@ -10,10 +10,14 @@ const cookieParser = require('cookie-parser')
 const cookieSecret = process.env.COOKIE_SECRET || 'TEMP_SECRET'
 const logger = require('morgan')
 
-const indexRouter = require('./routes/index')
-const registrationRouter = require('./routes/registration')
-const newsRouter = require('./routes/news')
-const loginRouter = require('./routes/login')
+const indexPageRouter = require('./routes/indexPage')
+const loginPageRouter = require('./routes/loginPage')
+const adminPageRouter = require('./routes/adminPage')
+
+const registrationApiRouter = require('./routes/registrationApi')
+const loginApiRouter = require('./routes/loginApi')
+const newsApiRouter = require('./routes/newsApi')
+
 
 
 const app = express()
@@ -26,10 +30,12 @@ app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
-app.use(cookieParser())
+app.use(cookieParser(cookieSecret))
 
 app.use(express.static(path.join(__dirname, 'public')))
-app.use('/', indexRouter)
+app.use('/', indexPageRouter)
+app.use('/', loginPageRouter)
+app.use('/', adminPageRouter)
 
 MongoClient.connect('mongodb://localhost:27017', 
 { useNewUrlParser: true }, (error, client) => {
@@ -41,9 +47,9 @@ MongoClient.connect('mongodb://localhost:27017',
     request.mailer = mailer
     next()
   })
-  app.use('/', newsRouter)
-  app.use('/', registrationRouter)
-  app.use('/', loginRouter)
+  app.use('/', newsApiRouter)
+  app.use('/', registrationApiRouter)
+  app.use('/', loginApiRouter)
 })
 
 module.exports = app

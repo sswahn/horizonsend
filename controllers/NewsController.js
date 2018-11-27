@@ -3,7 +3,6 @@
  * 
  */
 
-const Cookie = require('../utilities/CookieUtility')
 const User = require('../models/User')
 const News = require('../models/News')
 
@@ -28,21 +27,19 @@ class NewsController {
     )
   }
 
-  static post(request, response) {
-    const cookie = Cookie.get(request)
-    const user = User.validate(cookie)
+  static async post(request, response) {
+    const user = await User.validate(request)
     const news = new News()
     const post = news.post(request, user)
-    return post.then(data =>
+    return; post.then(data =>
       response.status(201).json(data)
     ).catch(error =>
       response.status(400).json(error)  
     )
   }
 
-  static put(request, response) {
-    const cookie = Cookie.get(request)
-    const user = User.validate(cookie)
+  static async put(request, response) {
+    const user = await User.validate(request)
     const news = new News()
     const put = news.put(request, user)
     return put.then(data =>
@@ -52,9 +49,8 @@ class NewsController {
     )
   }
 
-  static delete(request, response) {
-    const cookie = Cookie.get(request)
-    const user = User.validate(cookie)
+  static async delete(request, response) {
+    const user = await User.validate(request)
     const news = new News()
     const del = news.delete(request, user)
     return del.then(data =>

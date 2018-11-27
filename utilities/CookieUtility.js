@@ -11,7 +11,6 @@ class CookieUtility {
   static set(data, response) {
     response.cookie('user', data.ops[0].uuid, {
       expires: new Date(Date.now() + 100000),
-      httpOnly: true,
       signed: true
     })
     return data
