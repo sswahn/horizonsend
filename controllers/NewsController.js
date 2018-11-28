@@ -27,17 +27,25 @@ class NewsController {
     )
   }
 
+  static post(request, response) {
+    const news = new News()
+    return User.validate(request)
+    .then(user => news.post(request, user))
+    .then(data => response.status(201).json(data))
+    .catch(error => response.status(400).json(error))
+  }
+/*
   static async post(request, response) {
     const user = await User.validate(request)
     const news = new News()
     const post = news.post(request, user)
-    return; post.then(data =>
+    return post.then(data =>
       response.status(201).json(data)
     ).catch(error =>
       response.status(400).json(error)  
     )
   }
-
+*/
   static async put(request, response) {
     const user = await User.validate(request)
     const news = new News()

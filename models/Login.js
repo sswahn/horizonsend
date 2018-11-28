@@ -19,8 +19,7 @@ class Login {
       email: this.request.body.email,
       password: this.request.body.password
     }
-    const collection = this.request.database.collection('users')
-    return collection.find(params).toArray()
+    return this.request.database.collection('users').find(params).toArray()
   }
 
   verifyUser(document) {
@@ -31,15 +30,13 @@ class Login {
   }
 
   loginUser(document) {
-    const collection = this.request.database.collection('logins')
-    return collection.replaceOne(
-      { username: document[0].username }, 
-      {
-        username: document[0].username,
-        createdAt: Date.now(),
-        uuid: this.request.uuid()
-      }, 
-      { upsert: true }
+    const params = {
+      username: document[0].username,
+      createdAt: new Date(),
+      uuid: this.request.uuid()
+    }
+    return this.request.database.collection('logins').replaceOne(
+      { username: document[0].username }, params, { upsert: true }
     )
   }
 }

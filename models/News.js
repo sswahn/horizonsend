@@ -19,18 +19,6 @@ class News {
   }
 
   post(request, user) {
-    console.log('uuid:', user[0].uuid)
-    return;
-    user.then(data =>
-      console.log(
-        'USER TYPE: ' + typeof data[0].uuid, 
-        'USER: ' + data[0].uuid
-      )
-    ).catch(error => console.error(error.message))
-    return;
-    if (user[0].username === undefined) {
-      throw new Error('Invalid user request.')
-    }
     if (request.body.image_src === undefined) {
       throw new Error('An image source address is required.')
     }
@@ -52,8 +40,8 @@ class News {
       caption: request.body.caption,
       title: request.body.title,
       message: request.body.message,
-      created_at: Date.now(),
-      updated_at: Date.now(),
+      created_at: new Date(),
+      updated_at: new Date(),
       created_by: user[0].username,
       updated_by: user[0].username
     }
