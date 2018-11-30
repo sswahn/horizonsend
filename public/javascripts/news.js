@@ -16,8 +16,8 @@ Vue.component('news-app', {
       </figure>
       <header>
         <h2>{{ article.title }}</h2>
-        <address class="author">By <span rel="author">{{ article.author }}</span></address> &ndash; 
-        <time :datetime="article.date">{{ article.date }}</time>
+        <address class="author">By <span rel="author">{{ article.created_by }}</span></address> &ndash; 
+        <time :datetime="article.updated_at">{{ article.updated_at }}</time>
       </header>
       <div>
         <p>{{ article.message }}</p>

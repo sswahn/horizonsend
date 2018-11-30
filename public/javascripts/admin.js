@@ -44,8 +44,8 @@ Vue.component('create-news-form', {
         headers: { 
           'Content-Type': 'application/json'
         }
-      }).then(response => response.text())
-      .then(data => alert('Success: ' + data))
+      }).then(response => response.json())
+      .then(data => console.log(data))
       .catch(error => console.warn(error))
     }
   }
