@@ -97,6 +97,10 @@
       <small>&copy; 2018 Horizon's End, Inc. All Rights Reserved.</small>
     </footer>
     <script src="/javascripts/vue.js"></script>
-    <script src="/javascripts/{{ script }}"></script>
+    {{#each script}}
+      <script src="/javascripts/{{ this }}"></script>
+    {{else}}
+      <script src="/javascripts/{{ script }}"></script>
+    {{/each}}
   </body>
 </html>

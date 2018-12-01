@@ -8,13 +8,15 @@ const Cookie = require('../utilities/CookieUtility')
 
 class LoginController {
   static post(request, response) {
-    const login = new Login(request)
-    const findUser = login.findUser()
-    return findUser.then(data => login.verifyUser(data))
-      .then(data => login.loginUser(data))
+    const login = new Login()
+    const findUser = login.findUser(request)
+    return findUser.then(data => login.loginUser(request, data))
       .then(data => Cookie.set(data, response))
       .then(data => response.status(201).json(data))
-      .catch(error => response.status(400).json({ error: error.message })
+      .catch(error => {
+        console.log('Errorz')
+        return response.status(400).json({ error: error.message })
+        }
     )
   }
 }

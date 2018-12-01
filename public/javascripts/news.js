@@ -5,25 +5,25 @@
 
 Vue.component('news-app', {
   template: `
-  <div>
-    <article v-for="(article, index) in articles" :key="index"
-    :id="article._id" class="article">
-      <figure>
-        <a :href="article.image_src">
-          <img :src="article.image_src" :alt="article.image_alt">
-        </a>
-        <figcaption>{{ article.caption }}</figcaption>
-      </figure>
-      <header>
-        <h2>{{ article.title }}</h2>
-        <address class="author">By <span rel="author">{{ article.created_by }}</span></address> &ndash; 
-        <time :datetime="article.updated_at">{{ article.updated_at }}</time>
-      </header>
-      <div>
-        <p>{{ article.message }}</p>
-      </div>
-    </article>
-  </div>
+    <div class="sections">
+      <article v-for="(article, index) in articles" :key="index"
+      :id="article._id" class="article">
+        <figure>
+          <a :href="article.image_src">
+            <img :src="article.image_src" :alt="article.image_alt">
+          </a>
+          <figcaption>{{ article.caption }}</figcaption>
+        </figure>
+        <header>
+          <h2>{{ article.title }}</h2>
+          <span class="author">By <a href="#" rel="author">{{ article.created_by }}</a></span> &ndash; 
+          <time :datetime="article.updated_at">{{ formatDate(article.updated_at) }}</time>
+        </header>
+        <div>
+          <p>{{ article.message }}</p>
+        </div>
+      </article>
+    </div>
   `,
   data() {
     return {
@@ -39,6 +39,11 @@ Vue.component('news-app', {
     },
     setData(data) {
       this.articles = data
+    },
+    formatDate(date) { // temp
+      return (new Date(date).toLocaleDateString('en-US',
+      { year: 'numeric', month: 'short', day: 'numeric' }
+    ))
     }
   },
   mounted() {

@@ -7,7 +7,7 @@ class News {
   get(request) {
     return request.database.collection('news')
       .find()
-      //.limit(8)
+      .limit(6)
       .sort({ created_at: -1 })
       .toArray()
   }

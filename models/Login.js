@@ -4,39 +4,33 @@
  */
 
 class Login {
-  constructor(request){
-    this.request = request
-  }
-  
-  findUser() {
-    if (this.request.body.email === undefined) {
+  findUser(request) {
+    if (request.body.email === undefined) {
       throw new Error('Email is required.')
     }
-    if (this.request.body.password === undefined) {
+    if (request.body.password === undefined) {
       throw new Error('Password is required.')
     }
     const params = {
-      email: this.request.body.email,
-      password: this.request.body.password
+      email: request.body.email,
+      password: request.body.password,
+      is_verified: 1
     }
-    return this.request.database.collection('users').find(params).toArray()
+    return request.database.collection('users').find(params).toArray()
   }
 
-  verifyUser(document) {
-    if (document[0].is_verified === 0) {
-      throw new Error('User account must be verified before logging in.')
+  loginUser(request, data) {
+    console.log('DATA', data.length)
+    if (data.length < 1) {
+      throw new Error('Invalid user.')
     }
-    return document
-  }
-
-  loginUser(document) {
     const params = {
-      username: document[0].username,
+      username: data[0].username,
       createdAt: new Date(),
-      uuid: this.request.uuid()
+      uuid: request.uuid()
     }
-    return this.request.database.collection('logins').replaceOne(
-      { username: document[0].username }, params, { upsert: true }
+    return request.database.collection('logins').replaceOne(
+      { username: data[0].username }, params, { upsert: true }
     )
   }
 }

@@ -5,7 +5,10 @@ const router = express.Router()
 router.get('/admin', function(request, response) {
   response.render('admin', { 
     title: "Horizon's End | Video Game Design",
-    script: 'admin.js'
+    script: [
+      'createNews.js',
+      'modifyNews.js'
+    ]
   })
 })
 
