@@ -9,15 +9,19 @@ Vue.component('modify-news-table', {
       <table>
         <thead>
           <tr>
+            <th>#</th>
             <th>Title</th>
             <th>Date</th>
+            <th>Author</th>
             <th>Edit</th>
             <th>Delete</th>
           </tr>
         </thead>
-        <tr v-for="(article, index) in articles" :key="index" id="article._id">
+        <tr v-for="(article, index) in articles" :key="index" :id="article._id">
+          <td>{{ index }}</td>
           <td>{{ article.title }}</td>
           <td>{{ article.updated_at }}</td>
+          <td>{{ article.created_by }}</td>
           <td>
             <button @click="showEditForm" title="Edit this post">
               <i class="fas fa-pencil-alt"></i>
@@ -32,40 +36,26 @@ Vue.component('modify-news-table', {
       </table>
     </div>
   `,
-  data() {
-    return {
-      articles: this.articles || []
+  computed: {
+    articles() {
+      return store.state.articles
     }
   },
   methods: {
-    getArticles() {
-      return fetch('/api/v1/news')
-        .then(response => response.json())
-        .then(data => this.setData(data))
-        .catch(error => console.error(error))
-    },
     deleteArticle(event) {
       if (window.confirm('Delete this post?')) {
-        const id = event.target.parentNode.id
-        return fetch(`/api/v1/news/${id}`, {
-          method: 'delete'
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error(error))
+        const id = event.target.parentNode.parentNode.id
+        store.dispatch('delete', id)
       }
     },
     showEditForm(event) {
       const id = event.target.parentNode.id
-      window.location.href = `/admin/news/${id}`
-    },
-    setData(data) {
-      this.articles = data
+      
     }
   },
   mounted() {
-    this.getArticles()
+    store.dispatch('get')
   }
 })
 
-const modifyNews = new Vue({ el: '#admin-news'})
+const modifyNews = new Vue({ el: '#admin-modify-news'})

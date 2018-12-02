@@ -13,11 +13,7 @@ class LoginController {
     return findUser.then(data => login.loginUser(request, data))
       .then(data => Cookie.set(data, response))
       .then(data => response.status(201).json(data))
-      .catch(error => {
-        console.log('Errorz')
-        return response.status(400).json({ error: error.message })
-        }
-    )
+      .catch(error =>  response.status(400).json({ error: error.message }))
   }
 }
 

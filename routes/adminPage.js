@@ -6,6 +6,8 @@ router.get('/admin', function(request, response) {
   response.render('admin', { 
     title: "Horizon's End | Video Game Design",
     script: [
+      'vuex.js',
+      'store.js',
       'createNews.js',
       'modifyNews.js'
     ]

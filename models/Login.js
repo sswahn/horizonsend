@@ -22,7 +22,7 @@ class Login {
   loginUser(request, data) {
     console.log('DATA', data.length)
     if (data.length < 1) {
-      throw new Error('Invalid user.')
+      throw new Error('Invalid user request: Either your email or password is incorrect, or your account is unverified.')
     }
     const params = {
       username: data[0].username,

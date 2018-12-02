@@ -24,14 +24,8 @@ Vue.component('login-form', {
           'Content-Type': 'application/json'
         }
       }).then(response => response.json())
-        .then(data => {
-        console.log(data)
-        if (data.error) {
-          alert(data.error)
-        } else {
-          window.location.href = '/admin' // change this
-        }
-      }).catch(error => console.error(error))
+        .then(data => (data.error) ? alert(data.error) : window.location.href = '/admin') // change this
+        .catch(error => console.error(error))
     }
   }
 })

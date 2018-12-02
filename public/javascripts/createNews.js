@@ -5,7 +5,7 @@
 
 Vue.component('create-news-form', {
   template: `
-    <form class="form form-medium" v-on:submit.prevent="submitForm()">
+    <form v-on:submit.prevent="submitForm()" class="form form-medium">
       <h2>Create a News article</h2>
       <div>
         <label for="image-src">Image URL</label>
@@ -39,17 +39,9 @@ Vue.component('create-news-form', {
         'title': this.$el[3].value,
         'message': this.$el[4].value
       }
-      return fetch('/api/v1/news', {
-        method: 'post',
-        body: JSON.stringify(data),
-        headers: { 
-          'Content-Type': 'application/json'
-        }
-      }).then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.warn(error))
+      store.dispatch('post', data)
     }
   }
 })
 
-const createNews = new Vue({ el: '#admin-news'})
+const createNews = new Vue({ el: '#admin-create-news'})

@@ -80,9 +80,10 @@ class News {
   }
 
   delete(request, user) {
-    return request.database.collection('news').deleteOne(
-      { '_id': request.ObjectId(request.params.id) }
-    )
+    return request.database.collection('news').deleteOne({ 
+      _id: request.ObjectId(request.params.id),
+      created_by: user[0].username
+    })
   }
 }
 
