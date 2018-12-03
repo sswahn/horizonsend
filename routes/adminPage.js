@@ -9,6 +9,7 @@ router.get('/admin', function(request, response) {
       'vuex.js',
       'store.js',
       'createNews.js',
+      'updateNews.js',
       'modifyNews.js'
     ]
   })

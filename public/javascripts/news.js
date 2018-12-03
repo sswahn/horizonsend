@@ -41,12 +41,12 @@ Vue.component('news-app', {
       this.articles = data
     },
     formatDate(date) { // temp
-      return (new Date(date).toLocaleDateString('en-US',
-      { year: 'numeric', month: 'short', day: 'numeric' }
-    ))
+      return (new Date(date).toLocaleDateString('en-US', { 
+        year: 'numeric', month: 'short', day: 'numeric' 
+      }))
     }
   },
-  mounted() {
+  created() {
     this.getArticles()
   }
 })

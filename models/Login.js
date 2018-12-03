@@ -33,6 +33,8 @@ class Login {
       { username: data[0].username }, params, { upsert: true }
     )
   }
+
+  // logoutUser(request, data) {}
 }
 
 module.exports = Login

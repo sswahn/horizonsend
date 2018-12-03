@@ -28,7 +28,7 @@ class NewsController {
       .then(data => response.status(201).json(data))
       .catch(error => response.status(400).json(error.message))
   }
-  // needs testing (build form):
+  
   static put(request, response) {
     const validate = User.validate(request)
     const news = new News()

@@ -33,11 +33,11 @@ Vue.component('create-news-form', {
   methods: {
     submitForm() {
       const data = {
-        'image_src': this.$el[0].value,
-        'image_alt': this.$el[1].value,
-        'caption': this.$el[2].value,
-        'title': this.$el[3].value,
-        'message': this.$el[4].value
+        image_src: this.$el[0].value,
+        image_alt: this.$el[1].value,
+        caption: this.$el[2].value,
+        title: this.$el[3].value,
+        message: this.$el[4].value
       }
       store.dispatch('post', data)
     }

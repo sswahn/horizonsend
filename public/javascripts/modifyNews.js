@@ -17,18 +17,18 @@ Vue.component('modify-news-table', {
             <th>Delete</th>
           </tr>
         </thead>
-        <tr v-for="(article, index) in articles" :key="index" :id="article._id">
+        <tr v-for="(article, index) in articles" :key="index">
           <td>{{ index }}</td>
           <td>{{ article.title }}</td>
           <td>{{ article.updated_at }}</td>
           <td>{{ article.created_by }}</td>
           <td>
-            <button @click="showEditForm" title="Edit this post">
+            <button @click="showUpdateForm" title="Edit this post" :id="index">
               <i class="fas fa-pencil-alt"></i>
             </button>
           </td>
           <td>
-            <button @click="deleteArticle" title="Delete this post">
+            <button @click="deleteArticle" title="Delete this post" :id="article._id">
               <i class="fas fa-trash-alt"></i>
             </button>
           </td>
@@ -44,16 +44,16 @@ Vue.component('modify-news-table', {
   methods: {
     deleteArticle(event) {
       if (window.confirm('Delete this post?')) {
-        const id = event.target.parentNode.parentNode.id
+        const id = event.target.id
         store.dispatch('delete', id)
       }
     },
-    showEditForm(event) {
-      const id = event.target.parentNode.id
-      
+    showUpdateForm(event) {
+      const index = event.target.id
+      store.dispatch('showUpdateForm', index)
     }
   },
-  mounted() {
+  created() {
     store.dispatch('get')
   }
 })

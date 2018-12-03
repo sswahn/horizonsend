@@ -8,9 +8,8 @@ const Cookie = require('../utilities/CookieUtility')
 class User {
   static validate(request) {
     const cookie = Cookie.get(request)
-    const user = this.getUser(request, cookie) // works
-    return user.then(data => this.confirmUser(data))
-      .then(data => this.validateUser(request, data))
+    const user = this.getUser(request, cookie)
+    return user.then(data => this.validateUser(request, data))
       .catch(error => console.error(error))
   }
 
@@ -18,13 +17,6 @@ class User {
     return request.database.collection('logins')
       .find({ uuid: cookie })
       .toArray()
-  }
-
-  static confirmUser(data) {
-    if (!data[0].username) {
-      throw new Error('User not found.')
-    }
-    return data
   }
 
   static validateUser(request, data) {

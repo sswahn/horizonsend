@@ -70,11 +70,11 @@ class News {
       caption: request.body.caption,
       title: request.body.title,
       message: request.body.message,
-      updated_at: Date.now(),
-      updated_by: user
+      updated_at: new Date(),
+      updated_by: user[0].username
     }
     return request.database.collection('news').updateOne(
-      { '_id': request.ObjectId(request.params.id) },
+      { _id: request.ObjectId(request.params.id) },
       { $set: values }
     )
   }
