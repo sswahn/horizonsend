@@ -27,7 +27,7 @@ Vue.component('login-form', {
         }
       })
       .then(response => response.json())
-      .then(data => (data.error) ? alert(data.error) : window.location.href = '/admin') // change this
+      .then(data => (data.error) ? alert(data.error) : window.location.href = '/admin') //TODO: change this
       .catch(error => console.error(error))
     }
   }

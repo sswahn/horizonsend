@@ -18,7 +18,7 @@ class Registration {
     if (request.body.password.length < 8) {
       throw new Error('Password must be at least 8 characters.')
     }
-    if (request.body.password !== request.body.confirm_password) {
+    if (request.body.password !== request.body.password_confirm) {
       throw new Error('Passwords do not match.')
     }
     const values = {

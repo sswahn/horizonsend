@@ -14,11 +14,10 @@ const indexPageRouter = require('./routes/indexPage')
 const loginPageRouter = require('./routes/loginPage')
 const adminPageRouter = require('./routes/adminPage')
 
+const registrationPageRouter = require('./routes/registrationPage')
 const registrationApiRouter = require('./routes/registrationApi')
 const authApiRouter = require('./routes/authApi')
 const newsApiRouter = require('./routes/newsApi')
-
-
 
 const app = express()
 
@@ -35,7 +34,7 @@ app.use(cookieParser(cookieSecret))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexPageRouter)
 app.use('/', loginPageRouter)
-//app.use('/', adminPageRouter)
+app.use('/', registrationPageRouter)
 
 MongoClient.connect('mongodb://localhost:27017', 
 { useNewUrlParser: true }, (error, client) => {
