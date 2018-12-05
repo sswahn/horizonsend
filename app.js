@@ -13,8 +13,8 @@ const logger = require('morgan')
 const indexPageRouter = require('./routes/indexPage')
 const loginPageRouter = require('./routes/loginPage')
 const adminPageRouter = require('./routes/adminPage')
-
 const registrationPageRouter = require('./routes/registrationPage')
+
 const registrationApiRouter = require('./routes/registrationApi')
 const authApiRouter = require('./routes/authApi')
 const newsApiRouter = require('./routes/newsApi')
@@ -51,5 +51,13 @@ MongoClient.connect('mongodb://localhost:27017',
   app.use('/', authApiRouter)
   app.use('/', adminPageRouter)
 })
+
+app.use((request, response) => 
+  response.status(404).render('error', {
+    status: 404,
+    message: 'Not found.',
+    css: 'login.css'
+  })
+)
 
 module.exports = app
