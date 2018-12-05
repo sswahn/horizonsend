@@ -17,7 +17,7 @@ Vue.component('login-form', {
         'email': this.$el[0].value,
         'password': this.$el[1].value
       }
-      return fetch('/api/v1/login', {
+      return fetch('/api/v1/auth/login', {
         method: 'post',
         body: JSON.stringify(data),
         headers: { 

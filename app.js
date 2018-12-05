@@ -15,7 +15,7 @@ const loginPageRouter = require('./routes/loginPage')
 const adminPageRouter = require('./routes/adminPage')
 
 const registrationApiRouter = require('./routes/registrationApi')
-const loginApiRouter = require('./routes/loginApi')
+const authApiRouter = require('./routes/authApi')
 const newsApiRouter = require('./routes/newsApi')
 
 
@@ -49,7 +49,7 @@ MongoClient.connect('mongodb://localhost:27017',
   })
   app.use('/', newsApiRouter)
   app.use('/', registrationApiRouter)
-  app.use('/', loginApiRouter)
+  app.use('/', authApiRouter)
   app.use('/', adminPageRouter)
 })
 

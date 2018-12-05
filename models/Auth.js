@@ -1,9 +1,9 @@
 /**
- * Login Model
+ * Auth Model
  * 
  */
 
-class Login {
+class Auth {
   findUser(request) {
     if (request.body.email === undefined) {
       throw new Error('Email is required.')
@@ -20,7 +20,6 @@ class Login {
   }
 
   loginUser(request, data) {
-    console.log('DATA', data.length)
     if (data.length < 1) {
       throw new Error('Invalid user request: Either your email or password is incorrect, or your account is unverified.')
     }
@@ -34,7 +33,11 @@ class Login {
     )
   }
 
-  // logoutUser(request, data) {}
+  logoutUser(request, cookie) {
+    return request.database.collection('logins').deleteOne({ 
+      uuid: cookie
+    })
+  }
 }
 
-module.exports = Login
+module.exports = Auth
