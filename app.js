@@ -35,7 +35,7 @@ app.use(cookieParser(cookieSecret))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexPageRouter)
 app.use('/', loginPageRouter)
-app.use('/', adminPageRouter)
+//app.use('/', adminPageRouter)
 
 MongoClient.connect('mongodb://localhost:27017', 
 { useNewUrlParser: true }, (error, client) => {
@@ -50,6 +50,7 @@ MongoClient.connect('mongodb://localhost:27017',
   app.use('/', newsApiRouter)
   app.use('/', registrationApiRouter)
   app.use('/', loginApiRouter)
+  app.use('/', adminPageRouter)
 })
 
 module.exports = app

@@ -10,7 +10,7 @@ class User {
     const cookie = Cookie.get(request)
     const user = this.getUser(request, cookie)
     return user.then(data => this.validateUser(request, data))
-      .catch(error => console.error(error))
+      .catch(error => Promise.reject('Invalid user request.'))
   }
 
   static getUser(request, cookie) {
