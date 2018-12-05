@@ -23,7 +23,14 @@
 
     <title>{{ title }}</title>
 
-    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css"> 
+    {{#if css }}
+      {{#each css}}
+        <link rel="stylesheet" type="text/css" href="/stylesheets/{{ this }}"></script>
+      {{else}}
+        <link rel="stylesheet" type="text/css" href="/stylesheets/{{ css }}"></script>
+      {{/each}}
+    {{/if}}
     <link rel="shortcut icon" href="http://www.horizonsend.com/images/favicon.png?v=2">
     <link rel="logo" type="image/png" href="http://www.horizonsend.com/images/logo-black.png">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:300,400,600">
