@@ -4,7 +4,7 @@ const router = express.Router()
 router.get('/register', function(request, response) {
   response.render('register', {
     title: "Horizon's End | Register User Account",
-    css: 'login.css',
+    css: 'register.css',
     script: 'register.js'
   })
 })

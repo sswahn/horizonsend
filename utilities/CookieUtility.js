@@ -10,8 +10,11 @@ class CookieUtility {
 
   static set(response, data) {
     response.cookie('user', data.ops[0].uuid, {
-      expires: new Date(Date.now() + 100000),
+      expires: new Date(Date.now() + 60 * 60 * 1000),
+      //domain: 'horizonsend.com',
       signed: true
+      //httpOnly: true,
+      //secure: true,
     })
     return data
   }

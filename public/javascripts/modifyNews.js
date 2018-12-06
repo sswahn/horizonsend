@@ -24,12 +24,12 @@ Vue.component('modify-news-table', {
           <td>{{ article.created_by }}</td>
           <td>
             <button @click="showUpdateForm" title="Edit this post" :id="index">
-              <i class="fas fa-pencil-alt"></i>
+              <i class="fa fa-pencil"></i>
             </button>
           </td>
           <td>
             <button @click="deleteArticle" title="Delete this post" :id="article._id">
-              <i class="fas fa-trash-alt"></i>
+              <i class="fa fa-trash"></i>
             </button>
           </td>
         </tr>

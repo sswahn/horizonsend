@@ -1,6 +1,7 @@
 const { MongoClient, ObjectId } = require('mongodb')
 const express = require('express')
 const helmet = require('helmet')
+
 const bodyParser = require('body-parser')
 const crypto = require('crypto')
 const uuid = require('uuid/v4')
@@ -32,9 +33,6 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser(cookieSecret))
 
 app.use(express.static(path.join(__dirname, 'public')))
-app.use('/', indexPageRouter)
-app.use('/', loginPageRouter)
-app.use('/', registrationPageRouter)
 
 MongoClient.connect('mongodb://localhost:27017', 
 { useNewUrlParser: true }, (error, client) => {
@@ -46,18 +44,22 @@ MongoClient.connect('mongodb://localhost:27017',
     request.mailer = mailer
     next()
   })
-  app.use('/', newsApiRouter)
   app.use('/', registrationApiRouter)
   app.use('/', authApiRouter)
+  app.use('/', newsApiRouter)
   app.use('/', adminPageRouter)
-})
 
+  app.use('/', indexPageRouter)
+  app.use('/', loginPageRouter)
+  app.use('/', registrationPageRouter)
+})
+/*
 app.use((request, response) => 
   response.status(404).render('error', {
     status: 404,
     message: 'Not found.',
     css: 'login.css'
   })
-)
+)*/
 
 module.exports = app

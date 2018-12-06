@@ -7,9 +7,15 @@ Vue.component('login-form', {
   template: `
     <form id="login-form" v-on:submit.prevent="submitForm">
     <img class="logo" src="http://www.horizonsend.com/images/horizons-end_logo.png" alt="Horizon's End | Video Game Design">
-      <input id="email" type="email" name="email" placeholder="Email" required>
-      <input id="password" type="password" name="password" placeholder="Password" required>
-      <button type="submit">Log in to Horizon's End</button>
+      <div class="">  
+        <i class="fa fa-user"></i>
+        <input id="email" type="email" name="email" placeholder="Email" required>
+      </div>
+      <div class="">
+        <i class="fa fa-lock"></i>
+        <input id="password" type="password" name="password" placeholder="Password" required>
+      </div>
+        <button type="submit">Log in to Horizon's End</button>
       <a href="/register">Create an account.</a>
     </form>
   `,

@@ -5,27 +5,31 @@
 
 Vue.component('create-news-form', {
   template: `
-    <form v-on:submit.prevent="submitForm()" class="form form-medium">
+    <form v-on:submit.prevent="submitForm()" class="form">
       <h2>Create a News article</h2>
       <div>
-        <label for="image-src">Image URL</label>
-        <input id="image-src" type="text" name="image_src" required>
-      </div>
-      <div>
-        <label for="image-alt">Image description</label>
-        <input id="image-alt" type="text" name="image_alt" required>
-      </div>
-      <div>
-        <label for="caption">Image caption</label>
-        <input id="caption" type="text" name="caption" required>
-      </div>
-      <div>
-        <label for="title">Title</label>
-        <input id="title" type="text" name="title" required>
-      </div>
-      <div>
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required></textarea>
+        <div>
+          <div>
+            <label for="image-src">Image URL</label>
+            <input id="image-src" type="text" name="image_src" required>
+          </div>
+          <div>
+            <label for="image-alt">Image description</label>
+            <input id="image-alt" type="text" name="image_alt" required>
+          </div>
+          <div>
+            <label for="caption">Image caption</label>
+            <input id="caption" type="text" name="caption" required>
+          </div>
+          <div>
+            <label for="title">Title</label>
+            <input id="title" type="text" name="title" required>
+          </div>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
       </div>
       <button type="submit">Submit</button>
     </form>

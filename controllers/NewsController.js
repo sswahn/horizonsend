@@ -22,25 +22,25 @@ class NewsController {
   }
 
   static post(request, response) {
-    const validate = User.validate(request)
     const news = new News()
-    return validate.then(user => news.post(request, user))
+    return User.validate(request)
+      .then(user => news.post(request, user))
       .then(data => response.status(201).json(data))
       .catch(error => response.status(400).json(error.message))
   }
   
   static put(request, response) {
-    const validate = User.validate(request)
     const news = new News()
-    return validate.then(user => news.put(request, user))
+    return User.validate(request)
+      .then(user => news.put(request, user))
       .then(data => response.status(201).json(data))
       .catch(error => response.status(400).json(error.message))
   }
 
   static delete(request, response) {
-    const validate = User.validate(request)
     const news = new News()
-    return validate.then(user => news.delete(request, user))
+    return User.validate(request)
+      .then(user => news.delete(request, user))
       .then(data => response.status(204).json(data))
       .catch(error => response.status(400).json(error.message))
   }
