@@ -102,3 +102,27 @@
     </figcaption>
   </figure>
 </section>
+<div class="modal hide">
+  <div class="modal-content"></div>
+</div>
+<script>
+    (function() {
+      const modal = document.querySelector('.modal')
+      const modalContent = modal.children[0]
+      const items = document.getElementsByClassName('media-item')
+      Object.keys(items).forEach(key => items[key].addEventListener('click', function() {
+        let element = this.cloneNode(true)
+        element.classList.toggle('show-media-item')
+        element.children[1].classList.toggle('show-caption')
+        modalContent.appendChild(element)
+        modal.classList.toggle('show-modal')
+      }))
+      modal.onclick = function(event) {
+        if (this.classList.contains('show-modal')) {
+          this.classList.remove('show-modal')
+          modal.children[0].innerHTML = ''
+        }
+      } 
+    })()
+</script>
+

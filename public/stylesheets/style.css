@@ -121,63 +121,6 @@ table button {
 }
 
 /**
- * Forms
- */
-
-.form {
-  width: 1200px;
-  margin: 0 auto 40px auto;
-}
-
-.form h2 {
-  text-transform: uppercase;
-  font-size: 18px;
-  margin: 0 0 20px 0
-}
-
-.form > div {
-  display: flex;
-}
-
-.form > div > div {
-  display: block;
-}
-
-.form > div > div:last-child {
-  margin-left: 20px;
-}
-
-.form label {
-  text-transform: uppercase;
-  font-size: 14px;
-}
-.form input {
-  width: 100%;
-  margin: 0 0 10px 0;
-  padding: 0 10px;
-}
-.form textarea {
-  display: block;
-  width: 800px;
-  height: 210px;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid gray;
-}
-.form button {
-  cursor: pointer;
-  padding: 10px 15px;
-  border-radius: 5px;
-  border: #eee;
-  background: forestgreen;
-  color: white;
-}
-
-.form button:hover {
-  background: lightgreen;
-}
-
-/**
  * Showcase
  */
  #showcase {
@@ -280,6 +223,46 @@ table button {
 }
 
 /**
+ * Modal
+ */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding: 100px 0; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  background: rgba(0,0,0,0.85); 
+}
+.show-modal {
+  display: block;
+}
+.modal-content {
+  background-color: #fefefe;
+
+  background: rgba(0,0,0,0.0); 
+}
+
+.close-modal {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close-modal:hover, .close-modal:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/**
  * Media
  */
 #media h3 {
@@ -302,16 +285,25 @@ table button {
 .media-item:nth-of-type(3n) {
   margin-right: 0;
 }
+
 .show-media-item {
-  border: 1px solid gray;
-  overflow: auto;
-  margin-bottom: 40px;
+  margin: auto;
+  padding: 0;
+  cursor: default;
   position: relative;
-  line-height: 1.2;
-  width: 400px;
-  cursor: pointer;
+  width: auto;
   height: auto;
+  overflow: hidden;
+  display: table;
 }
+
+.show-media-item img {
+  height: auto;
+  max-height: 100vh;
+  margin-bottom: -4px;
+  padding: 0;
+}
+
 .media-caption {
   color: #eee;
   background: black;
@@ -323,28 +315,22 @@ table button {
   width: 100%;
   height: 30px;
 }
+
 .show-caption {
   color: white;
+  line-height: 1.6;
   background: black;
   background: rgba(0,0,0,0.75); 
-  padding: 20px;
+  padding: 40px;
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width: auto;
+  max-width: auto;
   height: auto;
+  display: table-cell;
 }
-.caption-expand {
-  color: white;
-  background: black;
-  background: rgba(0,0,0,0.75); 
-  padding: 5px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
-}
+
 @media only screen and (max-width:1200px) {
   #header > div {
     width: 800px;

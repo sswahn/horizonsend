@@ -5,7 +5,7 @@
 
 Vue.component('registration-form', {
   template: `
-    <form id="login-form" v-on:submit.prevent="submitForm">
+    <form id="register-form" v-on:submit.prevent="submitForm">
     <img class="logo" src="http://www.horizonsend.com/images/horizons-end_logo.png" alt="Horizon's End | Video Game Design">
       <input id="username" type="text" name="username" placeholder="Username" required>  
       <input id="email" type="email" name="email" placeholder="Email" required>
