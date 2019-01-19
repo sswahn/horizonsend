@@ -1,7 +1,6 @@
 const { MongoClient, ObjectId } = require('mongodb')
 const express = require('express')
 const helmet = require('helmet')
-
 const bodyParser = require('body-parser')
 const crypto = require('crypto')
 const uuid = require('uuid/v4')
@@ -10,12 +9,10 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const cookieSecret = process.env.COOKIE_SECRET || 'TEMP_SECRET'
 const logger = require('morgan')
-
 const indexPageRouter = require('./routes/indexPage')
 const loginPageRouter = require('./routes/loginPage')
 const adminPageRouter = require('./routes/adminPage')
 const registrationPageRouter = require('./routes/registrationPage')
-
 const registrationApiRouter = require('./routes/registrationApi')
 const authApiRouter = require('./routes/authApi')
 const newsApiRouter = require('./routes/newsApi')
